@@ -1,5 +1,5 @@
 {
-  "name": "email-exporter-2",
+  "name": "email-exporter",
   "scripts": {
     "dev": "tauri dev",
     "bundle": "tauri build"

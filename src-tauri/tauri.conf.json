@@ -1,6 +1,6 @@
 {
   "package": {
-    "productName": "email-exporter-2",
+    "productName": "email-exporter",
     "version": "0.1.0"
   },
   "build": {
@@ -58,8 +58,7 @@
         "width": 540,
         "height": 540,
         "resizable": false,
-        "fullscreen": false,
-        "decorations": false
+        "fullscreen": false
       }
     ],
     "security": {
