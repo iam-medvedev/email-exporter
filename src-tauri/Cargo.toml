@@ -20,6 +20,9 @@ imap = "2"
 native-tls = "0.2"
 chrono = "0.4"
 utime = "0.3"
+regex = "1.5.4"
+base64 = "0.13"
+encoding_rs = "0.8.29"
 rfc2047-decoder = "0.1.2"
 serde = { version = "1.0", features = ["derive"] }
 tauri = { version = "1.0.0-beta.8", features = ["api-all"] }

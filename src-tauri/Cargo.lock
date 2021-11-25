@@ -42,9 +42,12 @@ checksum = "62e1f47f7dc0422027a4e370dd4548d4d66b26782e513e98dca1e689e058a80e"
 name = "app"
 version = "0.1.0"
 dependencies = [
+ "base64 0.13.0",
  "chrono",
+ "encoding_rs",
  "imap",
  "native-tls",
+ "regex",
  "rfc2047-decoder",
  "serde",
  "serde_json",
