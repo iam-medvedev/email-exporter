@@ -4,9 +4,8 @@
     "version": "0.1.0"
   },
   "build": {
-    "withGlobalTauri": true,
-    "distDir": "../dist",
-    "devPath": "../dist",
+    "distDir": "../public",
+    "devPath": "../public",
     "beforeDevCommand": "",
     "beforeBuildCommand": ""
   },
@@ -50,7 +49,12 @@
       "active": false
     },
     "allowlist": {
-      "all": true
+      "dialog": {
+        "open": true
+      },
+      "fs": {
+        "all": true
+      }
     },
     "windows": [
       {
@@ -60,9 +64,6 @@
         "resizable": false,
         "fullscreen": false
       }
-    ],
-    "security": {
-      "csp": "default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self' img-src: 'self'"
-    }
+    ]
   }
 }
