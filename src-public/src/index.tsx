@@ -13,6 +13,7 @@ import {
   TextInput,
 } from "./ui";
 import { Progress } from "./progress";
+import { Success } from "./success";
 
 setup(React.createElement);
 
@@ -24,6 +25,7 @@ function App() {
   const [outPath, setOutPath] = useState("");
   const [isOutputButtonHovered, setIsOutputButtonHovered] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
+  const [isExportSuccess, setIsExportSuccess] = useState(false);
   const [progress, setProgress] = useState(0);
 
   const disabled = !host || !port || !login || !password || !outPath;
@@ -62,6 +64,18 @@ function App() {
     }
   }
 
+  function onReload() {
+    setHost("");
+    setPort("");
+    setLogin("");
+    setPassword("");
+    setOutPath("");
+    setIsOutputButtonHovered(false);
+    setIsExporting(false);
+    setIsExportSuccess(false);
+    setProgress(0);
+  }
+
   useEffect(() => {
     listen<number>("progress", (e) => {
       setProgress((e.payload || 0) * 100);
@@ -70,10 +84,13 @@ function App() {
     listen("success", () => {
       setProgress(0);
       setIsExporting(false);
+      setIsExportSuccess(true);
     });
   }, []);
 
-  return isExporting ? (
+  return isExportSuccess ? (
+    <Success onReload={onReload} />
+  ) : isExporting ? (
     <Progress value={progress} />
   ) : (
     <Form onSubmit={onSubmit}>
@@ -86,6 +103,7 @@ function App() {
           placeholder="imap.example.com"
           value={host}
           onChange={(e) => setHost(e.target.value)}
+          autoCapitalize="off"
           required
         />
       </FormItem>
@@ -99,6 +117,7 @@ function App() {
           placeholder="993"
           value={port}
           onChange={(e) => setPort(e.target.value)}
+          autoCapitalize="off"
           required
         />
       </FormItem>
@@ -111,6 +130,7 @@ function App() {
           type="text"
           value={login}
           onChange={(e) => setLogin(e.target.value)}
+          autoCapitalize="off"
           required
         />
       </FormItem>
@@ -123,6 +143,7 @@ function App() {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          autoCapitalize="off"
           required
         />
       </FormItem>

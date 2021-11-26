@@ -6,8 +6,8 @@
   "build": {
     "distDir": "../public",
     "devPath": "../public",
-    "beforeDevCommand": "",
-    "beforeBuildCommand": ""
+    "beforeDevCommand": "yarn build:public",
+    "beforeBuildCommand": "yarn build:public"
   },
   "tauri": {
     "bundle": {
