@@ -1,6 +1,6 @@
 {
   "package": {
-    "productName": "email-exporter",
+    "productName": "Email Exporter",
     "version": "0.1.0"
   },
   "build": {
@@ -23,7 +23,7 @@
       ],
       "resources": [],
       "externalBin": [],
-      "copyright": "",
+      "copyright": "Ilya Medvedev <ilya@medvedev.im>",
       "category": "DeveloperTool",
       "shortDescription": "",
       "longDescription": "",

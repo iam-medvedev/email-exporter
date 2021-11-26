@@ -39,7 +39,7 @@ pub fn run_email_export(
     fs::create_dir_all(mailbox_dir).unwrap();
 
     // Getting all messages from current mailbox
-    let messages = imap_session.fetch("1:3", "(RFC822 ENVELOPE)").unwrap();
+    let messages = imap_session.fetch("1:*", "(RFC822 ENVELOPE)").unwrap();
     for message in messages.iter() {
       let envelope = message.envelope().unwrap();
       let subject = rfc2047_decoder::decode(envelope.subject.unwrap()).expect("No subject");
